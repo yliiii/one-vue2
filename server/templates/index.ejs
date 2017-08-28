@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title><%- title %></title>
+    <!--[if lt IE 10]>
+    <script src="//as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
+    <![endif]-->
+  <link href="/dist/main-8a790d86.css" rel="stylesheet"></head>
+  <body>
+    <%- html %>
+    <script>
+      try {
+        window.__GDATA__ = <%- JSON.stringify(gData) %>;
+      } catch (e) {}
+    </script>
+  <script type="text/javascript" src="/dist/vendor-a7e79f93.js"></script><script type="text/javascript" src="/dist/main-a7e79f93.js"></script></body>
+</html>

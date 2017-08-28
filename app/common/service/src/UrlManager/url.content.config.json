@@ -1,0 +1,5 @@
+{
+  "module": "content",
+  "getContentList": "/series/content_list",
+  "createUnit": "/series/unit/create_unit"
+}

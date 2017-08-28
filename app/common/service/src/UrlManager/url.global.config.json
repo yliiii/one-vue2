@@ -1,0 +1,3 @@
+{
+  "getUserInfo": "/user?userId={userId}"
+}
