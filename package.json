@@ -73,10 +73,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yliiii/yli-vue2.git"
+    "url": "git+https://github.com/yliiii/see-vue2.git"
   },
   "bugs": {
-    "url": "https://github.com/yliiii/yli-vue2/issues"
+    "url": "https://github.com/yliiii/see-vue2/issues"
   },
-  "homepage": "https://github.com/yliiii/yli-vue2#readme"
+  "homepage": "https://github.com/yliiii/see-vue2#readme"
 }
