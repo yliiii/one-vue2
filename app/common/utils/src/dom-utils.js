@@ -9,39 +9,16 @@ export class componentGetClassNames {
     this.reStyles = reStyles
     this.condition = condition
     this.cx = classnames.bind(styles)
-    this.recx = classnames.bind(reStyles)
     this.CLASS_CACHE_NAME = Math.uuid()
     this[this.CLASS_CACHE_NAME] = {}
 
-
-    return (name, $condition = condition) => {
-      if (!name) return ""
-
-      let reg = /\s{1,}/g
-      let cls = ""
-
-      if (!reg.test(name)) {
-        cls = this.formatCls(name, $condition)
-      } else {
-        let names = name.replace(reg, ",").split(",")
-
-        names.forEach(v => {
-          let str = this.formatCls(v, $condition[v])
-
-          if (str) {
-            cls += `${this.formatCls(v, $condition[v])} `
-          }
-        })
-      }
-
-      return cls
-    }
+    return this
   }
 
   formatCls = (name, condition) => {
     let { styles, reStyles } = this
     let v = this[this.CLASS_CACHE_NAME][name]
-    let reCls = reStyles && reStyles[name] ? { [this.recx(name)]: !!reStyles[name] } : {}
+    let reCls = reStyles && reStyles[name] ? { [reStyles[name]]: !!reStyles[name] } : {}
 
     if (condition) {
       let reCondition = {}
@@ -60,6 +37,44 @@ export class componentGetClassNames {
     }
 
     return v
+  }
+
+  addStyles = styles => {
+    if (this.reStyles) {
+      let keys = Object.keys(this.reStyles)
+
+      keys.forEach(key => {
+        if (key in styles) {
+          let style = this.reStyles[key]
+          this.reStyles[key] = style + ' ' + styles[key]
+        }
+      })
+    } else {
+      this.reStyles = styles
+    }
+  }
+
+  getClass = (name, $condition = this.condition) => {
+    if (!name) return ""
+
+    let reg = /\s{1,}/g
+    let cls = ""
+
+    if (!reg.test(name)) {
+      cls = this.formatCls(name, $condition)
+    } else {
+      let names = name.replace(reg, ",").split(",")
+
+      names.forEach(v => {
+        let str = this.formatCls(v, $condition[v])
+
+        if (str) {
+          cls += `${this.formatCls(v, $condition[v])} `
+        }
+      })
+    }
+
+    return cls
   }
 }
 

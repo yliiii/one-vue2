@@ -8,16 +8,10 @@
 import { componentGetClassNames } from 'utils/dom-utils'
 import styles from './styles.styl'
 
+const  componentClass = new componentGetClassNames(styles)
 export default {
   methods: {
-    cls: new componentGetClassNames(styles)
-  },
-
-  created() {
-  },
-
-  mounted() {
+    cls: componentClass.getClass
   }
 }
-
 </script>

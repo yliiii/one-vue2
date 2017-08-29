@@ -31,7 +31,7 @@ export default {
   },
   resolve: {
     modules: ["node_modules"],
-    extensions: [".vue", ".js", ".styl"],
+    extensions: [".js", ".vue", ".styl"],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       ...aliasBaseConfig

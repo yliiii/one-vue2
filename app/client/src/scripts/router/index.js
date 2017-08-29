@@ -11,10 +11,16 @@ export function createRouter() {
       {
         path: '/',
         component: Index,
-        children: [{
+        children: [
+          {
             path: 'home',
-            component: () => import('pages/home')
-        }]
+            component: () => import('pages/Home')
+          },
+          {
+            path: 'player',
+            component: () => import('pages/Media')
+          }
+        ]
       }
     ]
   })
