@@ -16,6 +16,39 @@
     }
   },
   "rules": {
-    "semi": 0
+    "no-unused-expressions": [
+      1, {
+        "allowShortCircuit": true
+      }
+    ],
+
+    "no-empty": [
+      2, {
+        "allowEmptyCatch": true
+      }
+    ],
+
+    "default-case": 0,
+    "no-case-declarations": 0,
+    "no-script-url": 0,
+
+    "semi": 0,
+    "eol-last": 0,
+    "no-unused-vars": 1,
+    "global-require": 0,
+
+    "import/no-unresolved": 0,
+    "no-unneeded-ternary": 1,
+    "no-nested-ternary": 0,
+    "max-len": [2, 150],
+    "no-return-assign": 0,
+    "dot-notation": 1,
+    "no-param-reassign": 1,
+    "func-names": 1,
+    "consistent-return": 1,
+    "no-global-assign": 1,
+    "no-unsafe-negation": 1,
+    "no-mixed-operators": 1,
+    "object-property-newline": 1
   }
 }
