@@ -23,9 +23,6 @@ require('babel-register')({
   plugins: [
     ["module-resolver", {
       "alias": extend({}, baseAliasConfig, aliasConfig)
-    }],
-    ['inline-replace-variables', {
-      __SERVER__: true
     }]
   ]
 })
