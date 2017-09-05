@@ -1,6 +1,6 @@
 {
   "name": "yli-vue2",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "webpack2&vue2&koa2",
   "main": "app.js",
   "scripts": {
@@ -11,7 +11,15 @@
     "build:server": "cd app/client && npm run build:server",
     "pm2": "pm2 start process.json --env production"
   },
+  "bin": {
+    "gen-onevue": "./generator/gen"
+  },
+  "engines": {
+    "node": ">=7.0",
+    "npm": ">=4.0"
+  },
   "dependencies": {
+    "commander": "^2.11.0",
     "cross-env": "^5.0.5",
     "css-modules-require-hook": "^4.0.6",
     "ejs": "^2.5.6",
@@ -33,7 +41,8 @@
     "typescript": "^2.4.2",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
-    "vue-server-renderer": "^2.4.2"
+    "vue-server-renderer": "^2.4.2",
+    "vuex": "^2.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -69,9 +78,6 @@
   },
   "author": "YLI",
   "license": "ISC",
-  "bin": {
-    "node_test": "development.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yliiii/see-vue2.git"

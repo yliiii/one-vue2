@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const ROOT_PATH = path.resolve('..')
+const packageConfig = require(path.resolve(ROOT_PATH, 'package'))
+const gen = require('commander')
+
+process.env.NODE_PATH = path.resolve(ROOT_PATH, 'node_modules')
+
+gen.version(packageConfig.version)
+
+gen.parse(process.argv)
+
+if (!onvue.args.length) {
+  gen.help()
+}
