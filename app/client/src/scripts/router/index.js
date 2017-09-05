@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Components from './components'
 import Index from 'pages/index.vue'
 
 Vue.use(VueRouter)
@@ -16,10 +17,7 @@ export function createRouter() {
             path: 'home',
             component: () => import('pages/Home')
           },
-          {
-            path: 'player',
-            component: () => import('pages/Media')
-          }
+          Components
         ]
       }
     ]

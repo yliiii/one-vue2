@@ -22,10 +22,6 @@ export default {
   ],
   data: () => ({
     videoSrc: '',
-
-    // 计时器
-    switchT: 0,
-
     // 状态类
     isShowVideo: false
   }),
