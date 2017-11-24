@@ -2,18 +2,18 @@
   <div>
     <media :reStyles="styles" ref="media"></media>
     <div>
-      <input type="text" ref="channelInput" v-model="channel" :value="channel"/>
+      <input type="text" ref="channelInput" v-model="channel"/>
       <input type="button" value="切换线路" @click="switchChannel"/>
     </div>
   </div>
 </template>
 
 <script>
-  import { componentGetClassNames } from 'utils/dom-utils'
+  import { ComponentGetClassNames } from 'utils/dom-utils'
   import media from 'ui-base/Media'
   import styles from './styles'
 
-  const componentClass = new componentGetClassNames(styles)
+  const componentClass = new ComponentGetClassNames(styles)
 
   export default {
     data: () => ({

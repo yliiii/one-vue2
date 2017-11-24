@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import { componentGetClassNames } from 'utils/dom-utils'
+import { ComponentGetClassNames } from 'utils/dom-utils'
 import styles from './styles.styl'
 
-const componentClass = new componentGetClassNames(styles)
+const componentClass = new ComponentGetClassNames(styles)
 
 export default {
   methods: {

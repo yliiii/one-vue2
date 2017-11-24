@@ -1,4 +1,4 @@
-# ![SEE-VUE2-ISOMORPHIC](about:blank)
+# ![ONE-VUE-ISOMORPHIC](about:blank)
 
 npm run dev
 

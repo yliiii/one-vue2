@@ -7,10 +7,10 @@
 
 <script>
 import Detector from 'utils/detector/web-detector'
-import { componentGetClassNames } from 'utils/dom-utils'
+import { ComponentGetClassNames } from 'utils/dom-utils'
 import styles from './styles'
 
-const componentClass = new componentGetClassNames(styles)
+const componentClass = new ComponentGetClassNames(styles)
 const isSupportHLS = /^(?:ios|android)$/i.test(Detector.os.name) || /^(?:safari|edge)$/i.test(Detector.browser.name)
 
 let HLS = null
@@ -28,11 +28,11 @@ export default {
   created() {
     componentClass.addStyles(this.reStyles) // 附加重写样式
 
-    if (isSupportHLS) { // 假如支持HLS协议，则设置video.src
-      this.videoSrc = this.channel || ''
-    }
-
     if (this.channel) { // 有推流通道才显示video
+      if (isSupportHLS) { // 假如支持HLS协议，则设置video.src
+        this.videoSrc = this.channel
+      }
+
       this.isShowVideo = true
     }
   },

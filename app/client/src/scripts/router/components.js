@@ -5,6 +5,10 @@ export default {
     {
       path: 'player',
       component: () => import('containers/Components/Media')
+    },
+    {
+      path: 'oneswitchtab',
+      component: () => import('containers/Components/OneSwitchTab')
     }
   ]
 }
