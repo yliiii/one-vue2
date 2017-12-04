@@ -1,6 +1,6 @@
 <template>
 	<div :class="cls('home-wrap')">
-    HELLO WORLD!
+    <router-link to='/components'>COMPONENTS</router-link>
   </div>
 </template>
 

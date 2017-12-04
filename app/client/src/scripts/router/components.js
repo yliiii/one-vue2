@@ -1,5 +1,5 @@
 export default {
-  path: 'components',
+  path: '/components',
   component: () => import('pages/Components'),
   children: [
     {
