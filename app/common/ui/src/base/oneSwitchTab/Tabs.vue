@@ -43,7 +43,6 @@ export default {
     tabs: [],
     curTab: '',
     nextTab: '',
-    isAnimateWillStart: false, // 动画即将开始
     isAnimateEnded: true, // 动画已经结束
     width: 'auto',
     transform: {},
@@ -57,31 +56,6 @@ export default {
     this.tabs = this.$children
     this.width = this.$refs.content.clientWidth + 'px'
     this.setTabs()
-  },
-  updated() {
-    if (this.isAnimateWillStart) {
-      let prevTab = this.curTab
-
-      setTimeout(() => {
-        this.transition = { transition: `transform ${this.speed}s ease` }
-        this.setTransform(this.nextTab)
-        this.isAnimateWillStart = false
-        this.isAnimateEnded = false
-
-        setTimeout(() => { // 动画结束后触发
-          this.curTab = this.nextTab
-          this.setTabs()
-
-          this.onTabChanged(this.curTab, prevTab)
-
-          // 重置动画相关变量
-          this.isAnimateEnded = true
-          this.nextTab = ''
-          this.transform = {}
-          this.transition = {}
-        }, this.speed * 1e3)
-      })
-    }
   },
   computed: {
     animationStyle() {
@@ -120,7 +94,29 @@ export default {
       this.tabs.forEach(tab => tab.isShown = true) // 重置所有tab的状态
       this.setTransform(this.curTab) // 设置当前tab的偏移量
       this.nextTab = nextTab
-      this.isAnimateWillStart = true
+
+      this.$nextTick(() => {
+        let prevTab = this.curTab
+
+        setTimeout(() => {
+          this.transition = { transition: `transform ${this.speed}s ease` }
+          this.setTransform(this.nextTab)
+          this.isAnimateEnded = false
+
+          setTimeout(() => { // 动画结束后触发
+            this.curTab = this.nextTab
+            this.setTabs()
+
+            this.onTabChanged(this.curTab, prevTab)
+
+            // 重置动画相关变量
+            this.isAnimateEnded = true
+            this.nextTab = ''
+            this.transform = {}
+            this.transition = {}
+          }, this.speed * 1e3)
+        })
+      })
     },
     setTransform(curTab) {
       let autoKey = 0
